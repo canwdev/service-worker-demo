@@ -1,6 +1,6 @@
 # service-worker-demo
 
-简单的 Service Worker 实例
+简单的 Service Worker 实例，配合 [Service Worker 入门教程](https://github.com/canwdev/notes-vuepress/blob/master/docs/notes/js/js-service-worker.md) 使用。
 
 ## 如何运行
 
