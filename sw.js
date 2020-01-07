@@ -1,4 +1,4 @@
-var CACHE_VERSION = 'v1'
+var CACHE_VERSION = 'v2'
 
 self.addEventListener('install', (event) => {
   event.waitUntil(
@@ -8,6 +8,20 @@ self.addEventListener('install', (event) => {
         '/index.html',
         '/index.js',
       ])
+    })
+  )
+  
+  return self.skipWaiting()
+})
+
+self.addEventListener('activate', (event) => {
+  event.waitUntil(
+    caches.keys().then((keyList) => {
+      return Promise.all(keyList.map((key) => {
+        if (key !== CACHE_VERSION) {
+          return caches.delete(key)
+        }
+      }))
     })
   )
 })
